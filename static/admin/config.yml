@@ -1,14 +1,16 @@
 backend:
-  name: test-repo
-media_folder: content/assets
-public_folder: /assets
+  name: git-gateway
+  branch: master
+
+media_folder: "images/uploads"
 collections:
-  - name: 'blog'
-    label: 'Blog'
-    folder: 'content/blog'
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
     create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { name: 'date', label: 'Date', widget: 'datetime' }
-      - { name: 'title', label: 'Title' }
-      - { name: 'body', label: Body, widget: 'markdown' }
-      
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Body", name: "body", widget: "markdown"}
